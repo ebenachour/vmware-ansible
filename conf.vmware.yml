@@ -1,0 +1,7 @@
+plugin: vmware_vm_inventory
+strict: False
+hostname: 41.231.7.109
+username: admin
+password: admin
+validate_certs: False
+with_tags: True

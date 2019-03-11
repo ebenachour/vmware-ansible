@@ -1,0 +1,15 @@
+---
+#Usual VMware guest deployment variables for example_group group
+vsphere_host: 172.16.100.9
+vsphere_user: "administrator@vsphere.local"
+vsphere_datacenter: "EODC"
+vsphere_folder: "/EODC/PreProd"
+guest_network: VMNet-Sup-Lan100
+guest_netmask: 255.255.255.248
+guest_gateway: 41.231.7.105
+guest_dns_server: 192.168.1.10
+guest_domain_name: testAnsible
+guest_id: AnsibleCentOS7
+guest_memory: 2048
+guest_vcpu: 2
+guest_template: Template_centos7
