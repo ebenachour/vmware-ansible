@@ -2,6 +2,35 @@
 # get date
 - set_fact: creationdate="{{lookup('pipe','date "+%Y/%m/%d %H:%M"')}}"
 
+# Create VMNetwork
+- name: Add Management Network VM Portgroup to all hosts in a cluster
+  vmware_portgroup:
+          hostname: '{{ vsphere_host }}'
+          username: '{{ vsphere_user }}'
+          password: '{{ vsphere_password }}'
+          validate_certs: no
+          cluster_name: '{{ cluster_name }}'
+          switch_name: '{{ vswitch_name }}'
+          portgroup_name: '{{ portgroup_name }}'
+          vlan_id: '{{ vlan_id }}'
+  delegate_to: localhost
+
+
+# First create a folder
+- name: Create a VM SubFolder
+  vcenter_folder:
+          hostname: '{{ vsphere_host }}'
+          username: '{{ vsphere_user }}'
+          password: '{{ vsphere_password }}'
+          validate_certs: no
+          datacenter: '{{ vsphere_datacenter }}'
+          folder_name: '{{ client_folder }}'
+          parent_folder: PreProd
+          state: present
+  register: vm_folder_creation_result
+  delegate_to: localhost
+
+
 # Create a VM from a template
 - name: create the VM
   vmware_guest:
@@ -17,7 +46,7 @@
     guest_id: '{{ guest_id }}'
     annotation: "{{ notes }} - {{ creationdate }}"
     disk:
-    - size_gb: 150
+    - size_gb: 50
       type: thin
       datastore: '{{ vsphere_datastore }}'
     networks:

@@ -14,7 +14,8 @@
       private: no
       default: "Deployed with ansible"
 
-  roles:
-     - deploy_vmware_guest
+  tasks:
+    - include_role:
+        name: deploy_vmware_guest
      #- other roles to execute directly inside VM after deployment
      #- ...
