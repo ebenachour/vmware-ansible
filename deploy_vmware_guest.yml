@@ -3,16 +3,38 @@
   gather_facts: false
   
   vars_prompt:
+    - name: "vsphere_host"
+      prompt: "Cloud1 10.100.100.100/Cloud2 10.100.100.102 "
+      private: no
     - name: "vsphere_password"
       prompt: "vSphere Password"
     - name: "esxi_host"
       prompt: "ESXi host"
       private: no
-      default: "esxi-3.mxt.local"
+      default: "10.100.100.61"
     - name: "notes"
       prompt: "VM notes"
       private: no
       default: "Deployed with ansible"
+    - name: "vsphere_folder"
+      prompt: "Client Folder"
+      private: no
+    - name: "guest_memory"
+      prompt: "RAM MB"
+      private: no
+    - name: "disk_size"
+      prompt: "Disk Size GB"
+      private: no  
+    - name: "guest_vcpu"
+      prompt: "VCPU Number"
+      private: no  
+    - name: "portgroup_name"
+      prompt: "VNetwork Name"
+      private: no
+    - name: "vlan_id"
+      prompt: "VLAN ID"
+      private: no
+
 
   tasks:
     - include_role:

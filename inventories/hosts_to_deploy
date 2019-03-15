@@ -1,2 +1,2 @@
-[example_group]
-CentOSAnsibleTest guest_custom_ip='41.231.7.109' vsphere_datastore='B2-ESXT1-FTP' ansible_host_group='example_group'
+[ESXi-vcenters]
+10.100.100.102
