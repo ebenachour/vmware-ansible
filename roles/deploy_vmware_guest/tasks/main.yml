@@ -9,7 +9,7 @@
           username: '{{ vsphere_user }}'
           password: '{{ vsphere_password }}'
           validate_certs: no
-          hosts: [10.100.100.61, 10.100.100.62, 10.100.100.63]
+          hosts: ['{{ ip_esxi1 }}', '{{ ip_esxi2 }}','{{ ip_esxi3 }}']
           switch_name: '{{ vswitch_name }}'
           portgroup_name: '{{ portgroup_name }}'
           vlan_id: '{{ vlan_id }}'
