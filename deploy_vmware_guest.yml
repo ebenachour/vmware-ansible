@@ -4,14 +4,14 @@
   
   vars_prompt:
     - name: "vsphere_host"
-      prompt: "Cloud1 10.100.100.100/Cloud2 10.100.100.102 "
+      prompt: "Cloud1/Cloud2"
       private: no
     - name: "vsphere_password"
       prompt: "vSphere Password"
     - name: "esxi_host"
       prompt: "ESXi host"
       private: no
-      default: "10.100.100.61"
+      default: "IP_ADDRESS"
     - name: "notes"
       prompt: "VM notes"
       private: no
